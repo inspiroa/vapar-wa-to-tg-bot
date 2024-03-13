@@ -1,4 +1,4 @@
-import { VercelRequest, VercelResponse) { } from "@vercel/node";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 import Telegraf, { Context as TelegrafContext, Extra } from "telegraf";
 import { ExtraReplyMessage } from "telegraf/typings/telegram-types";
 import { about, greeting } from "..";
@@ -72,9 +72,9 @@ export async function useWebhook(req: VercelRequest, res: VercelResponse) {
 		// call bot commands and middlware
 		botUtils();
 
-		console.log("webhook already defined");
-		console.log("request method: ", req.method);
-		console.log("req.body", req.body);
+		// console.log("webhook already defined");
+		// console.log("request method: ", req.method);
+		// console.log("req.body", req.body);
 
 		if (req.method === "POST") {
 			await bot.handleUpdate(req.body, res);
