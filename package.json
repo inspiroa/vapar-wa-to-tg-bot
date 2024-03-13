@@ -1,10 +1,10 @@
 {
-	"name": "telegram-bot-boilerplate-now-serverless-api",
-	"version": "2.0.0",
-	"description": "A template for building Telegram bots with Telegraf.js Vercel's Serverless Functions",
+	"name": "vapar-wa-to-tg-bot",
+	"version": "1.0.0",
+	"description": "Parse whatsapp messages",
 	"main": "api/index.ts",
-	"author": "Stephane Mensah",
-	"homepage": "https://github.com/waptik/telegram-bot-boilerplate-now-serverless-api.git",
+	"author": "Danya Yudin",
+	"homepage": "https://github.com/inspiroa/vapar-wa-to-tg-bot",
 	"scripts": {
 		"dev": "dotenv -- nodemon -e ts -x ts-node src/lib/telegram.ts",
 		"prettier": "prettier --single-quote --trailing-comma all --write 'src/**/*.ts'"
@@ -14,12 +14,14 @@
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^0.8.0",
+		"@types/node": "^20.11.26",
 		"@vercel/node": "^1.8.5",
 		"debug": "^4.3.1",
 		"dotenv-cli": "^4.0.0",
 		"nodemon": "^2.0.6",
 		"prettier": "^2.2.0",
-		"ts-node": "^9.0.0",
+		"ts-node": "^10.9.2",
+		"tslib": "^2.6.2",
 		"typescript": "^4.1.2"
 	}
 }

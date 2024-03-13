@@ -4,6 +4,10 @@ import { ExtraReplyMessage } from "telegraf/typings/telegram-types";
 import { about, greeting } from "..";
 import { ok } from "./responses";
 
+const welcomeMessage =
+	"Короче, Вапарыш, я тебя спас и в благородство играть не буду: присылаешь для меня несколько сообщений из вацап – и мы в расчете. Заодно напишем пригодную для отчета конверсию. Хрен его знает, на кой ляд тебе этот Отчет сдался, но я в чужие дела не лезу, хочешь написать, значит есть за что…";
+const instructions =
+	'Вот что тебе нужно сделать: \n\n1. Заходишь в чат Конверсии \n2. Выделяешь все сообщения за день: Нажимаешь на первое, затем прокручиваешь вниз, пока не выделишь все, что нужно. \n3. Нажимаешь на кнопку "Скопировать" \n4. Отправляешь все это мне. \n5. Я пережёвываю эти сообщения и превращаю их в то, что тебе нужно для отчёта. \n6. Ты получаешь готовый отчёт и можешь спать спокойно. \n\n Всё, до связи...';
 const debug = require("debug")("lib:telegram");
 
 const isDev = process.env.DEV;
@@ -19,7 +23,11 @@ function botUtils() {
 	bot.use(logger);
 
 	bot.start(ctx => {
-		return ctx.reply("This is a test bot.");
+		ctx.reply(welcomeMessage);
+
+		setTimeout(() => {
+			ctx.reply(instructions);
+		}, 500);
 	});
 
 	bot.command("about", about()).on("text", greeting());
