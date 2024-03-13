@@ -1,4 +1,4 @@
-import { NowRequest, NowResponse } from "@vercel/node";
+import { VercelRequest, VercelResponse) { } from "@vercel/node";
 import Telegraf, { Context as TelegrafContext, Extra } from "telegraf";
 import { ExtraReplyMessage } from "telegraf/typings/telegram-types";
 import { about, greeting } from "..";
@@ -36,7 +36,7 @@ function botUtils() {
 async function localBot() {
 	debug("Bot is running in development mode at http://localhost:3000");
 
-	bot.webhookReply = false;
+	bot.webhookReply = true;
 
 	const botInfo = await bot.telegram.getMe();
 	bot.options.username = botInfo.username;
@@ -50,7 +50,7 @@ async function localBot() {
 	await bot.launch();
 }
 
-export async function useWebhook(req: NowRequest, res: NowResponse) {
+export async function useWebhook(req: VercelRequest, res: VercelResponse) {
 	try {
 		if (!isDev && !VERCEL_URL) {
 			throw new Error("VERCEL_URL is not set.");
