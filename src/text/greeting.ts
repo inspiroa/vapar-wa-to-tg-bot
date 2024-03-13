@@ -35,14 +35,14 @@ const greeting = () => (ctx: any) => {
 		result = "`" + result.slice(0, -2) + "`";
 		replyToMessage(ctx, messageId, result);
 	}
-	// if (expensiveItems) {
-	// 	expensiveItems = "`" + expensiveItems.slice(0, -2) + "`";
-	// 	ctx.reply("дорого:");
+	if (expensiveItems) {
+		expensiveItems = "`" + expensiveItems.slice(0, -2) + "`";
+		// ctx.reply("дорого:");
 
-	// 	setTimeout(() => {
-	// 		ctx.reply(expensiveItems, { parse_mode: "MarkdownV2" });
-	// 	}, 500);
-	// }
+		setTimeout(() => {
+			// ctx.reply(expensiveItems, { parse_mode: "MarkdownV2" });
+		}, 500);
+	}
 };
 
 export { greeting };
