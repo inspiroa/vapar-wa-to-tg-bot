@@ -37,7 +37,7 @@ const greeting = () => (ctx: any) => {
 	}
 	if (expensiveItems) {
 		expensiveItems = "`" + expensiveItems.slice(0, -2) + "`";
-		ctx.reply("дорого:");
+		ctx.reply("Дорого:");
 
 		setTimeout(() => {
 			ctx.reply(expensiveItems, { parse_mode: "MarkdownV2" });
