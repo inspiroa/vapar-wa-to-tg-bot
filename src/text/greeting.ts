@@ -3,7 +3,6 @@ const debug = require("debug")("bot:greeting_text");
 const replyToMessage = (ctx: any, messageId: string, string: string) =>
 	ctx.reply(string, {
 		reply_to_message_id: messageId,
-		parse_mode: "MarkdownV2",
 	});
 
 const greeting = () => (ctx: any) => {
@@ -17,9 +16,9 @@ const greeting = () => (ctx: any) => {
 	const regex =
 		/\[(?:\d{2}\.\d{2},\s\d{2}:\d{2})\]\s[^\:]+:\s(?:[^\n]+)\n((?:.|\n)+?)(?=\[\d{2}\.\d{2},\s\d{2}:\d{2}\]|$)/g;
 
-	let result = "";
-	let expensiveItems = "";
-	let match;
+	let result: string = "";
+	let expensiveItems: string = "";
+	let match: RegExpExecArray | null = null;
 
 	while ((match = regex.exec(messageText)) !== null) {
 		const item = match[1].trim();
@@ -32,15 +31,15 @@ const greeting = () => (ctx: any) => {
 
 	// Remove the last semicolon and space, and send the result
 	if (result) {
-		result = "`" + result.slice(0, -2) + "`";
 		replyToMessage(ctx, messageId, result);
 	}
 	if (expensiveItems) {
-		expensiveItems = "`" + expensiveItems.slice(0, -2) + "`";
-		// ctx.reply("дорого:");
+		setTimeout(() => {
+			replyToMessage(ctx, messageId, "дорого");
+		}, 300);
 
 		setTimeout(() => {
-			// ctx.reply(expensiveItems, { parse_mode: "MarkdownV2" });
+			replyToMessage(ctx, messageId, expensiveItems);
 		}, 500);
 	}
 };
