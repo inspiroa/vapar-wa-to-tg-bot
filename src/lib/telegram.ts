@@ -108,7 +108,7 @@ export const logger = async (_: TelegrafContext, next): Promise<void> => {
 	// @ts-ignore
 	await next();
 	const ms = new Date().getTime() - start.getTime();
-	console.log("Response time: %sms", ms);
+	console.log("Response  time: %sms", ms);
 };
 
 if (isDev) {
