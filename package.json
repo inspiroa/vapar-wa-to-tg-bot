@@ -10,7 +10,8 @@
 		"prettier": "prettier --single-quote --trailing-comma all --write 'src/**/*.ts'"
 	},
 	"dependencies": {
-		"telegraf": "^3.38.0"
+		"telegraf": "^3.38.0",
+		"vercel": "^33.5.5"
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^0.8.0",
